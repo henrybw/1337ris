@@ -1,7 +1,7 @@
 Preface
 =======
 
-(Originally, 1337ris was a Java game I wrote in high school. This is a Python rewrite I did back in the fall of 2008. The following notes were taken from the webpage I used to maintain for this game.)
+*(Originally, 1337ris was a Java game I wrote in high school. This is a Python rewrite I did back in the fall of 2008. The following notes were taken from the webpage I used to maintain for this game.)*
 
 The idea for this came up while I was taking the introductory computer programming class at UW. One of the great things about 142 was that they offered an extra option to learn Python in addition to Java. Anyways, toward the end of the quarter, they introduced to us a game programming library called Pygame, and, lo and behold, our final "assignment" was to create our own game in Python using Pygame. I had been doing game projects on my own as a hobby for several years, so I jumped at the opportunity to make a game with Pygame.
 
@@ -9,7 +9,7 @@ As for what game I decided to make, well, I realized that 1337ris would be a per
 
 Oddly enough, in the end, there wasn't much actual "porting" involved, as I found that, when I had finished 1337ris, I had spent more time redesigning and writing new code. The game itself was a lot more polished than its original Java counterpart was—all of the game modes were actually finished, the game had snazzy screen effects and transitions, and the soundtrack had been greatly expanded and improved upon. In some ways, it wasn't just an enhancement or port of the original 1337ris—it was an entirely new game by itself.
 
-On the technical side, I'm pretty happy with the design and structure of 1337ris. One of the key aspects of the internal design of 1337ris is its Game State Machine, based in part off of a technique I learned from David Brackeen's Developing Games in Java. The Game State class hierarchy was very effective in implementing the other game modes quickly and efficiently. However, it has its limitations. Perhaps there's a better, more generalized design that I could have come up with, but really, who cares? Besides, overgeneralizing isn't necessarily a good thing: just take a look at what happened to C++!
+On the technical side, I'm pretty happy with the design and structure of 1337ris. One of the key aspects of the internal design of 1337ris is its Game State Machine, based in part off of a technique I learned from David Brackeen's *Developing Games in Java*. The Game State class hierarchy was very effective in implementing the other game modes quickly and efficiently. However, it has its limitations. Perhaps there's a better, more generalized design that I could have come up with, but really, who cares? Besides, overgeneralizing isn't necessarily a good thing: just take a look at what happened to C++!
 
 Introduction
 ============
