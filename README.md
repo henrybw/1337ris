@@ -1,7 +1,7 @@
 Preface
 =======
 
-Originally, 1337ris was a Java game I wrote in high school. This is a Python rewrite I did back in the fall of 2008.
+(Originally, 1337ris was a Java game I wrote in high school. This is a Python rewrite I did back in the fall of 2008. The following notes were taken from the webpage I used to maintain for this game.)
 
 The idea for this came up while I was taking the introductory computer programming class at UW. One of the great things about 142 was that they offered an extra option to learn Python in addition to Java. Anyways, toward the end of the quarter, they introduced to us a game programming library called Pygame, and, lo and behold, our final "assignment" was to create our own game in Python using Pygame. I had been doing game projects on my own as a hobby for several years, so I jumped at the opportunity to make a game with Pygame.
 
