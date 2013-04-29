@@ -1,0 +1,23 @@
+1337ris v2.0
+By Henry Weiss (a.k.a. Henry Baba-Weiss)
+(it's pronounced "lee-tris" -- it's a joke on leet, i.e. 1337)
+
+1337ris is a unique, multi-mode spin-off of Alexey Pajitnov's legendary
+Tetris. In addition to normal Tetris-style gameplay, 1337ris introduces
+"bombs" and "dynamite," as well as three different playing modes, each
+with their own odd twist.
+
+I originally conceived of 1337ris in my high school Java class some-
+time around the end of junior year. I finished the traditional Tetris
+game mode, but then school ended, and I promptly forgot about the
+game until now. You can still see the original version, which is online
+at http://netathon.fugiware.com/media.php (the site itself is completely
+fictitious, by the way).
+
+A lot of the specific gameplay mechanics were based off the mechanics
+used by Tetris DX for the Game Boy Color (but without the glitches).
+
+Written in Python using pygame on Mac OS X 10.5.5 using Smultron 3.5.
+
+
+(To return to the main menu, press Esc, Space, or Return.)

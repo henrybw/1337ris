@@ -1,0 +1,24 @@
+#The Twist (you can stop skipping now)
+1337ris adds two additional elements to the traditional gameplay: bombs
+and dynamite blocks. These are special types of blocks that will sometimes
+appear instead of a normal tetromino. Bomb blocks, upon "locking" into place
+on the playing field, will immediately destroy any blocks on and above the line
+it landed on. Dynamite blocks do not detonate immediately, but can be deto-
+nated later (like a bomb) by pressing a key (the left Shift key by default).
+However, they do not count towards making a horizontal line (i.e. you can't
+clear a line with a dynamite block in it).
+
+These blocks don't appear that often, so use them wisely. The dynamite
+block in particular, if used correctly, can be used as a "mulligan" and save
+you from a game-over. Bomb blocks can be useful in clearing away any
+mistakenly placed blocks, but don't depend on them to get you out of a jam.
+
+Also, blowing up enough blocks with either a bomb or dynamite can some-
+times give you a free line clear. You need 20 blocks cleared with a bomb or 40
+blocks cleared with dynamite in order to get a free line clear. These "carry
+over" -- e.g. 40 blocks cleared with a bomb gives you two free line clears.
+
+#The Other Game Modes
+In addition to the traditional-style Tetris gameplay, 1337ris offers three
+additional game modes: Cross-Cut, Convergence, and Psychedelic. If you're
+bored with normal Tetris, try these...and prepare to have your mind blown.

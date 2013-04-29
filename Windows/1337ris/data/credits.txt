@@ -1,0 +1,93 @@
+#Original Concept
+Alexey Pajitnov
+
+#Design and Programming
+Henry Weiss
+
+#Artwork
+Peter Weiss
+Henry Weiss
+
+#Sounds
+Henry Weiss
+Peter Weiss
+
+(Several sounds were created using MIDI effects. The rest are original
+sound effects, either recorded or generated.)
+
+#Music
+"Music1" -- Henry Weiss
+"More Something" -- Henry Weiss
+"Mist in the Night" -- Peter Weiss
+"Expansion" -- Henry & Peter Weiss
+"Techno Thingy" -- Henry Weiss
+"Scrazzers Theme" -- Peter Weiss
+
+("Techno Thingy" was made with MIDI -- all other songs were made with
+Apple's GarageBand. All were converted to Ogg Vorbis using HairerSoft's
+Amadeus Pro.)
+
+#Testers
+Peter Weiss
+
+#Special Thanks To...
+My younger brother, Peter Weiss, for turning my "programmer art"
+into graphics that actually look really good, for helping me compose
+music, and for just being really supportive in general.
+
+The testers of the original 1337ris (from my high school Java class):
+-       Nick Achatz
+-       Alex Pham
+-       Patrick Morrison
+-       Andrew Knox
+-       George Hevlin
+-       Becca Smith
+-       Phillip Cunliffe
+
+The Tetris Concept wiki (http://tetrisconcept.com/wiki/), for its
+invaluable collection of information about Tetris gameplay.
+
+David Brackeen, whose book, "Developing Games in Java", provided
+inspiration for some of the game programming techniques used in
+1337ris, such as time-based animation and game states.
+
+Marty Stepp and the TAs of CSE 142, for running the Python sessions,
+introducing us to the awesomeness of pygame, and teaching one hell
+of an introductory programming course. You guys rock!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(To return to the main menu, press Esc, Space, or Return.)
+
+
+
+
+
+
+
+
+
+
+
+

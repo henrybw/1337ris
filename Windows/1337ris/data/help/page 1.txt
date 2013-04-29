@@ -1,0 +1,24 @@
+#Menu Stuff
+As you've probably already figured out by now, menu navigation is achieved
+by using the arrow keys (usually up and down) to scroll through the available
+items/options, and then pressing Return or the spacebar to choose the high-
+lighted item/option. (This can vary, of course, depending on which menu
+screen you are at.) Game controls can be configured in the key config part of
+the Settings menu.
+
+#The Basics (skip to page 3 if you already know how to play Tetris)
+Well, 1337ris is based off of Tetris, which you probably already know how to
+play, unless you've been living under a rock for the past two decades. Just in
+case you were (you might want to get your head checked out -- hopefully that
+rock didn't give you any brain damage), here's a quick run through of how
+Tetris works.
+
+Basically, Tetris is a falling-blocks puzzle game. A random sequence of tetro-
+minoes -- different shapes/arrangements of four blocks -- fall down on the
+playing field one at a time, and when they either hit the bottom of the screen or
+collide with other blocks on the playing field, the tetromino becomes part of the
+playing field itself, and you'll get a new falling tetromino, coming from the top
+of the screen, to control. Before the tetromino locks into the playing field, you
+can move it from side to side and rotate it 90 degrees clockwise or counter-
+clockwise (as many times as you like) in order to make it fit more advantage-
+ously with the other blocks.

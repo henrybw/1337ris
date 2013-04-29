@@ -1,0 +1,21 @@
+#The Basics (cont.)
+The object of the game is to make horizontal lines of blocks, using these tetro-
+minoes, that touch both edges of the screen. When a line is made, the blocks in
+the line will disappear, and the blocks on top of the cleared line will all shift
+down. As more and more lines clear, the tetrominoes fall faster and faster, and
+when there's no more room for a new tetromino to fit, the game ends.
+
+There are seven types of tetrominoes, shown here:
+
+{{TETROMINOES}}
+
+As you can imagine, these vary in height and width when rotated various times,
+so it is possible to build up layers of blocks and then clear multiple lines at
+once with the right type of tetromino. The most lines you can clear at once is
+four (using the black tetromino), and this is called a "tetris" (rather, a "1337ris",
+if you will). You get points for clearing lines, with multiple line clears worth
+more than single line clears. You can also get points for speeding up the fall of
+your tetromino, or just dropping it on the play field when you have positioned it
+correctly (instead of waiting for it to fall). If you want more explanations, just
+go and Google "tetris" -- there's tons of guides and other information already
+out there. Wikipedia's article is a good place to start.

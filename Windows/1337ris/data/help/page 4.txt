@@ -1,0 +1,24 @@
+#Cross-Cut
+The tetrominoes spawn in the center of the screen...and they don't fall. Instead,
+you have to make lines by moving your tetromino manually. This time, you can
+move up as well (with the drop key, as you can't "drop" in this mode). You still
+have to place the tetromino before it automatically locks into place (you can
+tell by checking how white its glow is). Build up lines from both ends of the field,
+but act quickly, or your game will come to an abrupt end before you know it.
+
+#Convergence
+This mode is very similar to Traditional mode, with one exception: before you
+get your tetromino, you must merge two tetrominoes moving towards each
+other at the top of the screen. You can rotate these tetrominoes (pressing the
+rotate keys will rotate both in one direction), but once they collide, you must
+use the resulting tetromino and place it on the field like you would normally.
+You'll quickly find that you'll need some different strategies in order to survive
+in this mode.
+
+#Psychedelic
+This mode is the Frankenstein's monster of 1337ris. Keep in mind that I made
+this game mode just for the lulz. Oh, and since it's almost impossible to clear
+lines in this mode, you'll advance a level for every 5000 points you score. And
+that's all the help I'll give -- you're on your own with this one. Good luck.
+
+Well, that's it. Now stop reading this and go play some 1337ris!
