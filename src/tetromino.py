@@ -14,7 +14,7 @@
 # A 'B' tile is a bomb, while a 'D' tile is dynamite.
 #
 
-from headers import *
+from .headers import *
 
 # Where all tetrominoes spawn from (well, most of them)
 DEFAULT_START_POINT = (GRID_WIDTH / 2 - 1, 3)
@@ -101,7 +101,7 @@ class Tetromino:
         angle = (angle - angle % 90) % 360
 
         # Rotate the blocks around the center
-        for i in range(angle / 90):
+        for i in range(int(angle / 90)):
             for i in range(len(self.blocks)):
                 relative_x = self.blocks[i][0] - self.center_x
                 relative_y = self.blocks[i][1] - self.center_y

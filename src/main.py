@@ -25,7 +25,7 @@
 # guessing it's pygame overhead, but I don't really know.)
 #
 
-from headers import *
+from .headers import *
 
 # State constants found through trial-and-error (since pygame was so kind as
 # to not specify the activate event states...)
@@ -51,7 +51,7 @@ class Main:
     def __init__(self):
         # First, check if we can load things other than just BMPs
         if not image.get_extended():
-            print "Fatal Error: extended image support not enabled."
+            print("Fatal Error: extended image support not enabled.")
             exit()  # Bail out -- we can't load our resources
 
         # Otherwise, start up pygame
@@ -291,10 +291,10 @@ class Main:
 
     # Formats a millisecond counter into an actual, human-readable time display
     def time_to_str(self, millis):
-        time_str = "%02d:%02d" % (millis / 60000 % 60, millis / 1000 % 60)
+        time_str = "%02d:%02d" % (int(millis / 60000 % 60), int(millis / 1000 % 60))
 
         if millis / 3600000 > 0:
-            time_str = str(millis / 3600000) + ":" + time_str  # We're into hours now... o_O
+            time_str = str(int(millis / 3600000)) + ":" + time_str  # We're into hours now... o_O
 
         return time_str
 
@@ -310,11 +310,11 @@ class Main:
         current_score = []  # For constructing the tuple
         index = 0
 
-        for line in file(filename, 'rb'):
+        for line in open(filename, 'rb'):
             line = line.strip()  # Remove newlines
 
             # Decrypt the current line
-            data = line.split(DELIMITER)
+            data = line.decode().split(DELIMITER)
             data.reverse()
             string = ''
 
@@ -341,7 +341,7 @@ class Main:
     # Saves a list of high score tuple entries to the high scores file.  See the HighScores
     # class for a description of what the tuple format is.
     def save_high_scores(self, filename, scores):
-        output = file(filename, 'wb')
+        output = open(filename, 'wb')
         z = 1
         for entry in scores:
             for item in entry:
@@ -350,10 +350,10 @@ class Main:
 
                 # Save the data in reverse
                 for i in range(len(item) - 1, -1, -1):
-                    output.write(str(-~(ord(item[i]) ^ 127)) + DELIMITER)
+                    output.write((str(-~(ord(item[i]) ^ 127)) + DELIMITER).encode())
 
                 # Add newline
-                output.write("\n")
+                output.write("\n".encode())
 
         # Save the file
         output.close()
@@ -472,8 +472,8 @@ class Main:
             # Construct Rects to draw the portions (ceiling is used
             # to make sure the middle is always covered, regardless of
             # rounding/truncating).
-            part1 = Rect(SCREEN_WIDTH / 2, 0, math.ceil(self.x_pos[0] - SCREEN_WIDTH / 2), SCREEN_HEIGHT)
-            part2 = Rect(self.x_pos[1], 0, math.ceil(SCREEN_WIDTH / 2 - self.x_pos[1]), SCREEN_HEIGHT)
+            part1 = Rect(SCREEN_WIDTH / 2, 0, ceil(self.x_pos[0] - SCREEN_WIDTH / 2), SCREEN_HEIGHT)
+            part2 = Rect(self.x_pos[1], 0, ceil(SCREEN_WIDTH / 2 - self.x_pos[1]), SCREEN_HEIGHT)
 
             # Draw those portions
             display.get_surface().blit(self.start, (0, 0))
@@ -494,8 +494,8 @@ class Main:
             # Construct Rects to draw the portions (ceiling is used
             # to make sure the middle is always covered, regardless of
             # rounding/truncating).
-            part1 = Rect(SCREEN_WIDTH / 2, 0, math.ceil(self.x_pos[0] - SCREEN_WIDTH / 2), SCREEN_HEIGHT)
-            part2 = Rect(self.x_pos[1], 0, math.ceil(SCREEN_WIDTH / 2 - self.x_pos[1]), SCREEN_HEIGHT)
+            part1 = Rect(SCREEN_WIDTH / 2, 0, ceil(self.x_pos[0] - SCREEN_WIDTH / 2), SCREEN_HEIGHT)
+            part2 = Rect(self.x_pos[1], 0, ceil(SCREEN_WIDTH / 2 - self.x_pos[1]), SCREEN_HEIGHT)
 
             # Draw those portions
             display.get_surface().blit(self.end, (0, 0))
@@ -521,7 +521,7 @@ class Main:
                 # Calculate this bar rect
                 top = SCREEN_HEIGHT * (i / float(TRANSITION_POINTS))
                 bottom = SCREEN_HEIGHT * ((i + 1) / float(TRANSITION_POINTS))
-                bar = Rect(0, top, max(self.x_pos[i], 0), math.ceil(bottom - top))
+                bar = Rect(0, top, max(self.x_pos[i], 0), ceil(bottom - top))
 
                 # Blit it
                 display.get_surface().blit(self.end, (0, top), bar)

@@ -6,7 +6,7 @@
 # two tuple formats used here.
 #
 
-from headers import *
+from .headers import *
 
 CURSOR_BLINK_DELAY = 500
 MAX_NAME = 23

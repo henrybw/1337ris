@@ -5,7 +5,7 @@
 # State class that handles Cross-Cut Mode.
 #
 
-from headers import *
+from .headers import *
 
 CENTER_START = (GRID_WIDTH / 2 - 1, (GRID_HEIGHT - GRID_Y_OFFSET) / 2)
 INITIAL_MOVE_TIME = 10000
@@ -49,7 +49,7 @@ class CrossCutMode(TraditionalMode):
     def add_tetromino_to_field(self):
         if self.current.type == 'B':
             # Insert explosive into grid
-            self.tile_grid[self.current.center_x][self.current.center_y] = '1'
+            self.tile_grid[int(self.current.center_x)][int(self.current.center_y)] = '1'
 
             self.explode_blocks(self.current.center_y, SCORE_BOMB, TILES_BOMBED_FOR_LINE)
             self.bomb_snd.play()
@@ -59,7 +59,7 @@ class CrossCutMode(TraditionalMode):
             self.clear_event = EVENT_BOMB
         else:
             for block in self.current.get_blocks():
-                self.tile_grid[block[0]][block[1]] = self.current.type
+                self.tile_grid[int(block[0])][int(block[1])] = self.current.type
 
             self.lock_snd.play()
 
@@ -100,9 +100,9 @@ class CrossCutMode(TraditionalMode):
                         # copying a blank line instead the first line of whatever is in the
                         # other half of the screen, which prevents unnecessary block duplication.
                         if y == self.height / 2:
-                            self.tile_grid[x][y] = ' '
+                            self.tile_grid[int(x)][int(y)] = ' '
                         elif y >= 0:  # Accounts for the off-by-one adjustment in the range
-                            self.tile_grid[x][y] = self.tile_grid[x][y + copy_y]
+                            self.tile_grid[int(x)][int(y)] = self.tile_grid[int(x)][int(y + copy_y)]
 
         return lines_cleared
 
@@ -118,7 +118,7 @@ class CrossCutMode(TraditionalMode):
 
         for y in interval:
             for x in range(self.width):
-                if self.tile_grid[x][y] != ' ':
+                if self.tile_grid[int(x)][int(y)] != ' ':
                     # Award some points
                     self.score += score_per_block * self.level
 
@@ -128,7 +128,7 @@ class CrossCutMode(TraditionalMode):
                     if blocks_cleared > blocks_per_line:
                         self.lines += 1
                         blocks_cleared = 0
-                    self.tile_grid[x][y] = '1'  # Make affected tile explode
+                    self.tile_grid[int(x)][int(y)] = '1'  # Make affected tile explode
 
 
     # Makes the tetromino start from the center instead of the top

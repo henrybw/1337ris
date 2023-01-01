@@ -7,7 +7,7 @@
 # do anything, however -- that's left up to the subclasses.
 #
 
-from headers import *
+from .headers import *
 
 # Resource types
 (

@@ -5,7 +5,7 @@
 # State class that handles Convergence Mode. Derived from the traditional game mode.
 #
 
-from headers import *
+from .headers import *
 
 class ConvergenceMode(TraditionalMode):
     total_resources = 0

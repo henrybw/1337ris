@@ -7,7 +7,7 @@
 # globally, but the ones that need to be are defined here.
 #
 
-from headers import *
+from .headers import *
 
 # General constants
 IMG_PATH = "data/images/"

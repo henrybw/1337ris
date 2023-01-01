@@ -5,7 +5,7 @@
 # Subclass of a normal tetromino that allows it to fuse with another tetromino.
 #
 
-from headers import *
+from .headers import *
 
 class FusionTetromino(Tetromino):
     # Adds the blocks of another tetromino to this tetromino. Since

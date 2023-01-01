@@ -9,6 +9,7 @@
 # System includes
 import sys, os, math
 from random import *
+from math import sin, pi, ceil
 
 # pygame includes
 import pygame
@@ -21,17 +22,17 @@ from pygame.time import *
 from pygame.font import *
 
 # 1337ris includes
-from constants import *
-from prefscontroller import *
-from soundcontroller import *
-from tetromino import *
-from fusiontetromino import *
+from .constants import *
+from .prefscontroller import *
+from .soundcontroller import *
+from .tetromino import *
+from .fusiontetromino import *
 
-from gamestate import *
-from mainmenu import *
-from highscores import *
-from traditionalmode import *
-from crosscutmode import *
-from convergencemode import *
-from psychedelicmode import *
-from main import *
+from .gamestate import *
+from .mainmenu import *
+from .highscores import *
+from .traditionalmode import *
+from .crosscutmode import *
+from .convergencemode import *
+from .psychedelicmode import *
+from .main import *

@@ -5,7 +5,7 @@
 # State class that handles Psychedelic Mode. Derived from the traditional game mode.
 #
 
-from headers import *
+from .headers import *
 
 # Constants for this wacky mode
 FLASH_DELAY = 30
@@ -97,15 +97,15 @@ class PsychedelicMode(TraditionalMode):
 
                 for x in range(GRID_WIDTH):
                     for y in range(GRID_HEIGHT):
-                        if self.tile_grid[x][y] != ' ' and not self.is_exploding_block(self.tile_grid[x][y]) and (x, y) not in self.floating_blocks:
+                        if self.tile_grid[int(x)][int(y)] != ' ' and not self.is_exploding_block(self.tile_grid[int(x)][int(y)]) and (x, y) not in self.floating_blocks:
                             available_blocks.append((x, y))
 
                 # Pick a random block and make it float
                 if len(available_blocks) > 0:
                     x, y = available_blocks[randint(0, len(available_blocks) - 1)]
 
-                    self.floating_blocks.append((x * BLOCK_SIZE[0] + PIXEL_X_OFFSET, (y - self.grid_y_offset) * BLOCK_SIZE[1], self.tile_grid[x][y]))
-                    self.tile_grid[x][y] = ' '
+                    self.floating_blocks.append((x * BLOCK_SIZE[0] + PIXEL_X_OFFSET, (y - self.grid_y_offset) * BLOCK_SIZE[1], self.tile_grid[int(x)][int(y)]))
+                    self.tile_grid[int(x)][int(y)] = ' '
 
                     self.bomb_snd.play()
 
@@ -128,8 +128,8 @@ class PsychedelicMode(TraditionalMode):
                 # Go through the grid and switch around the types
                 for x in range(GRID_WIDTH):
                     for y in range(GRID_HEIGHT):
-                        if self.tile_grid[x][y] != ' ' and self.tile_grid[x][y] != 'D' and not self.is_exploding_block(self.tile_grid[x][y]):
-                            self.tile_grid[x][y] = NORMAL_TILES[randint(0, len(NORMAL_TILES) - 1)]
+                        if self.tile_grid[int(x)][int(y)] != ' ' and self.tile_grid[int(x)][int(y)] != 'D' and not self.is_exploding_block(self.tile_grid[int(x)][int(y)]):
+                            self.tile_grid[int(x)][int(y)] = NORMAL_TILES[randint(0, len(NORMAL_TILES) - 1)]
 
     # Draw the floating blocks too
     def draw_blocks(self, surface):

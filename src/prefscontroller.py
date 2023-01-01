@@ -6,7 +6,7 @@
 # be manually saved in order to take affect.
 #
 
-import os, ConfigParser
+import os, configparser
 
 # The section where all the preferences are. You can change this
 # if you really want to, but there's not much point.
@@ -21,7 +21,7 @@ class PrefsController:
         # Initialize the prefs to include our section
         self.defaults = defaults
         self.prefs_file = prefs_file
-        self.prefs = ConfigParser.RawConfigParser(self.defaults)
+        self.prefs = configparser.RawConfigParser(self.defaults)
         self.prefs.add_section(PREFS_SECTION)
 
         # Create the prefs file if it's not there
@@ -56,7 +56,7 @@ class PrefsController:
 
     # Saves the preferences to disk
     def save(self):
-        output = file(self.prefs_file, "wb")
+        output = open(self.prefs_file, "w")
         self.prefs.write(output)
         output.close()
 

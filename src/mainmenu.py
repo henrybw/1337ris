@@ -5,7 +5,7 @@
 # State class that handles the main menu.
 #
 
-from headers import *
+from .headers import *
 
 #
 # Constants
@@ -253,7 +253,7 @@ class MainMenu(GameState):
                 self.credits_offset = INITIAL_CREDITS_OFFSET
 
             # Prevents credits from flying off-screen
-            lower_bound = INITIAL_CREDITS_OFFSET - (len(file("data/credits.txt").readlines()) + 2) * self.text_font.get_linesize()
+            lower_bound = INITIAL_CREDITS_OFFSET - (len(open("data/credits.txt").readlines()) + 2) * self.text_font.get_linesize()
 
             if self.credits_offset < lower_bound:
                 self.credits_offset = lower_bound
@@ -708,7 +708,7 @@ class MainMenu(GameState):
     # Helper function that draws the normal settings interface
     def draw_settings(self, mode, surface):
         menu_y_offsets = []
-        vals = ['No', 'Yes']
+        vals = {False: 'No', True: 'Yes'}
         x = SETTINGS_X_OFFSET
         y = SETTINGS_Y_OFFSET
         line_height = self.text_font.get_linesize()
@@ -862,7 +862,7 @@ class MainMenu(GameState):
 
         current_line = 1
 
-        for line in file("data/credits.txt"):
+        for line in open("data/credits.txt"):
             line = line.strip()
 
             # Check if this is a heading
@@ -895,7 +895,7 @@ class MainMenu(GameState):
         # Read in the about file and draw the text from there
         current_line = 1
 
-        for line in file("data/about.txt"):
+        for line in open("data/about.txt"):
             line = line.strip()
 
             # EASTER EGG! WE W4S H4X3D!@!!!1!11!11 (a nice little treat, ain't it?)
@@ -928,7 +928,7 @@ class MainMenu(GameState):
             y = HELP_Y_OFFSET  # Initial y location
 
             # Draw this help file
-            for line in file(HELP_PATH + str(self.help_page + 1) + ".txt"):
+            for line in open(HELP_PATH + str(self.help_page + 1) + ".txt"):
                 line = line.strip()
 
                 # Encountered a "draw all tetrominoes" token?

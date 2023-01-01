@@ -17,7 +17,7 @@
 # least it's better than copypasta code.
 #
 
-from headers import *
+from .headers import *
 
 #
 # Constants
@@ -229,7 +229,7 @@ class TraditionalMode(GameState):
         self.sin_lookup = []
 
         for i in range(period + 1):
-            self.sin_lookup.append(round(abs(amplitude * math.sin((2 * math.pi / period) * i))))
+            self.sin_lookup.append(round(abs(amplitude * sin((2 * pi / period) * i))))
 
     # New game -- initialize everything to starting values
     def start(self, userdata=None):
@@ -300,7 +300,7 @@ class TraditionalMode(GameState):
         # If this is a bomb, check if we hit anything
         if self.current.type == 'B' and self.block_will_collide((self.current.center_x, self.current.center_y + 1)):
             # Insert bomb tile into the grid
-            self.tile_grid[self.current.center_x][self.current.center_y] = 'B'
+            self.tile_grid[int(self.current.center_x)][int(self.current.center_y)] = 'B'
 
             # Bombs clear the line they hit and anything above it...
             # 20 tiles cleared make one line (defined as constant).
@@ -322,7 +322,7 @@ class TraditionalMode(GameState):
                 if self.block_will_collide((block[0], block[1] + 1), DETECT_VERT):
                     # Add the tiles to the tile grid and get a new tetromino
                     for new_block in blocks:
-                        self.tile_grid[new_block[0]][new_block[1]] = self.current.type
+                        self.tile_grid[int(new_block[0])][int(new_block[1])] = self.current.type
 
                     # Since the tetromino is now part of the grid, get a new tetromino right away
                     self.lock_snd.play()
@@ -369,7 +369,7 @@ class TraditionalMode(GameState):
 
             for x in range(self.width):
                 # Empty/exploding/dynamite tiles don't count
-                if self.tile_grid[x][y] == ' ' or self.tile_grid[x][y] == 'D' or self.tile_grid[x][y] == '1':
+                if self.tile_grid[int(x)][int(y)] == ' ' or self.tile_grid[int(x)][int(y)] == 'D' or self.tile_grid[int(x)][int(y)] == '1':
                     line_filled = False
 
             # Otherwise...line cleared!
@@ -439,7 +439,7 @@ class TraditionalMode(GameState):
         new_x, new_y = location
         return ((flags & DETECT_HORIZ and (new_x < 0 or new_x >= self.width)) or
                 (flags & DETECT_VERT and (new_y < 0 or new_y >= self.height)) or
-                self.tile_grid[new_x][new_y] != ' ')
+                self.tile_grid[int(new_x)][int(new_y)] != ' ')
 
     # Resets the current tetromino to the next tetromino in the current stack
     def reset(self):
@@ -514,7 +514,7 @@ class TraditionalMode(GameState):
     def update_lines(self, lines_cleared):
         self.lines += lines_cleared
 
-        if ((self.lines / 10) + 1) > self.level:
+        if int((self.lines / 10) + 1) > self.level:
             # Woo, level cleared
             self.level_clear()
 
@@ -530,7 +530,7 @@ class TraditionalMode(GameState):
                 # Move down each line before it
                 for x in range(self.width):
                     for y in range(i, 0, -1):
-                        self.tile_grid[x][y] = self.tile_grid[x][y - 1]
+                        self.tile_grid[int(x)][int(y)] = self.tile_grid[int(x)][int(y - 1)]
 
         return lines_cleared
 
@@ -561,7 +561,7 @@ class TraditionalMode(GameState):
         for y in range(self.grid_y_offset, self.height):
             for x in range(self.width):
                 # Remove dynamite tiles and blow up stuff
-                if self.tile_grid[x][y] == 'D':
+                if self.tile_grid[int(x)][int(y)] == 'D':
                     # Dynamite clears the line its on and anything above it...
                     # 40 tiles cleared make one line (defined as constant).
                     self.explode_blocks(y, SCORE_BOMB, TILES_DETONATED_FOR_LINE)
@@ -579,7 +579,7 @@ class TraditionalMode(GameState):
 
         for y in range(y_offset, 0, -1):
             for x in range(self.width):
-                if self.tile_grid[x][y] != ' ':
+                if self.tile_grid[int(x)][int(y)] != ' ':
                     # Award some points
                     self.score += score_per_block * self.level
 
@@ -590,14 +590,14 @@ class TraditionalMode(GameState):
                         self.lines += 1
                         blocks_cleared = 0
 
-                    self.tile_grid[x][y] = '1'  # Make affected tile explode
+                    self.tile_grid[int(x)][int(y)] = '1'  # Make affected tile explode
 
     # Kind of the "clean up" version of the above
     def clear_detonated_blocks(self):
         for x in range(self.width):
             for y in range(self.height):
-                if self.is_exploding_block(self.tile_grid[x][y]):
-                    self.tile_grid[x][y] = ' '
+                if self.is_exploding_block(self.tile_grid[int(x)][int(y)]):
+                    self.tile_grid[int(x)][int(y)] = ' '
 
     # Checks to see if we are currently sliding or not
     def check_for_sliding(self):
@@ -666,12 +666,12 @@ class TraditionalMode(GameState):
                 # Check if we should update any explosions going on
                 for x in range(self.width):
                     for y in range(self.height):
-                        if self.is_exploding_block(self.tile_grid[x][y]):
+                        if self.is_exploding_block(self.tile_grid[int(x)][int(y)]):
                             if self.blocks_cleared_delay <= 0:
-                                self.tile_grid[x][y] = ' '
+                                self.tile_grid[int(x)][int(y)] = ' '
                             else:
-                                frame = EXPLOSION_FRAMES - self.blocks_cleared_delay / (BLOCKS_CLEARED_DELAY / EXPLOSION_FRAMES)
-                                self.tile_grid[x][y] = str(frame)
+                                frame = EXPLOSION_FRAMES - int(self.blocks_cleared_delay / (BLOCKS_CLEARED_DELAY / EXPLOSION_FRAMES))
+                                self.tile_grid[int(x)][int(y)] = str(frame)
 
                 return False
 
@@ -896,8 +896,8 @@ class TraditionalMode(GameState):
         # Draw the other blocks
         for y in range(self.grid_y_offset, self.height):
             for x in range(self.width):
-                if self.tile_grid[x][y] != ' ':
-                    self.draw_block(surface, self.tile_grid[x][y], (x, y))
+                if self.tile_grid[int(x)][int(y)] != ' ':
+                    self.draw_block(surface, self.tile_grid[int(x)][int(y)], (x, y))
 
             # Flash the lines we're clearing
             if self.full_lines[y]:
