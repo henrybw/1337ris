@@ -23,14 +23,14 @@ class PrefsController:
         self.prefs_file = prefs_file
         self.prefs = ConfigParser.RawConfigParser(self.defaults)
         self.prefs.add_section(PREFS_SECTION)
-        
+
         # Create the prefs file if it's not there
         if not os.access(self.prefs_file, os.F_OK):
             self.save()
-        
+
         # Read in the existing prefs
         self.load()
-    
+
     # Gets an attribute from the preferences
     def get(self, key):
         # Make sure the key is valid
@@ -43,28 +43,28 @@ class PrefsController:
                 return self.prefs.getboolean(PREFS_SECTION, key)
             else:
                 return self.prefs.get(PREFS_SECTION, key)
-    
+
     # Sets an attribute in the preferences
     def set(self, key, value):
         # Make sure the key is valid
         if key in self.defaults:
             self.prefs.set(PREFS_SECTION, key, str(value))
-    
+
     # Reads in preferences from disk
     def load(self):
         self.prefs.read(self.prefs_file)
-    
+
     # Saves the preferences to disk
     def save(self):
         output = file(self.prefs_file, "wb")
         self.prefs.write(output)
         output.close()
-    
+
     # Clears all changes that have been made
     def clear(self):
         for key in self.defaults.keys():
             self.prefs.remove_option(PREFS_SECTION, key)
-    
+
     # Reverts to the default preferences
     def reset(self):
         for key in self.defaults.keys():
